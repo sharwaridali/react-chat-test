@@ -28,7 +28,7 @@ const Login = () => {
       <Header />
       <div className="formContainer">
         <div className="formWrapper">
-          <span className="card-title">Register</span>
+          <span className="card-title">Login</span>
 
           <form onSubmit={handleSubmit}>
             <input
