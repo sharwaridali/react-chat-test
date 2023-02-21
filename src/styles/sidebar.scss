@@ -57,6 +57,13 @@
   }
   .users-list {
     width: 100%;
+  }
+
+  .chat-list {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    flex: 1;
     .user {
       display: flex;
       align-items: center;
@@ -76,7 +83,7 @@
       .avatar {
         width: 40px;
         height: 40px;
-        border-radius: 18px;
+        border-radius: 50%;
         object-fit: cover;
       }
 
@@ -85,21 +92,19 @@
         flex-direction: column;
         align-items: flex-start;
         margin-left: 10px;
+        gap: 5px;
 
         .name {
           font-weight: bolder;
-          font-size: 16px;
+          font-size: 18px;
         }
         p {
           font-weight: lighter;
+          overflow-x: hidden;
+          font-size: 14px;
+          height: 20px;
         }
       }
     }
-  }
-
-  .chat-list {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
   }
 }
