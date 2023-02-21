@@ -1,23 +1,23 @@
 import { doc, getDoc, getDocs, onSnapshot } from "firebase/firestore";
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../context/AuthContext";
+import { ChatContext } from "../../context/ChatContext";
 import { db } from "../../Firebase";
-import defaultAvatar from "../../images/default-avatar.png";
 import ChatListItem from "./ChatListItem";
-// import Profile from "./Profile";
 import Search from "./Search";
 
 function Sidebar() {
   const { currentUser } = useContext(AuthContext);
   const [userChats, setUserChats] = useState({});
+  const { dispatch } = useContext(ChatContext);
 
   useEffect(() => {
     try {
-      const fetchChats = () => {
+      const fetchChats = async () => {
         const unsub = onSnapshot(
           doc(db, "userChats", currentUser.uid),
           (doc) => {
-            console.log("Current data: ", doc.data());
+            // console.log("Current data: ", doc.data());
             setUserChats(doc.data());
           }
         );
@@ -32,7 +32,6 @@ function Sidebar() {
     }
   }, [currentUser.uid]);
 
-  console.log(Object.entries(userChats));
   return (
     <div className="sidebar-container">
       <Search />
@@ -45,6 +44,7 @@ function Sidebar() {
               displayName={chat[1].userInfo.displayName}
               lastMessage={chat[1].userInfo.lastMessage?.text}
               date={Date(chat[1].date)}
+              userInfo={chat[1].userInfo}
             />
           );
         })}

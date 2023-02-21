@@ -11,6 +11,7 @@ import {
 } from "firebase/firestore";
 import { Suspense, useContext, useState } from "react";
 import { AuthContext } from "../../context/AuthContext";
+import { ChatContext } from "../../context/ChatContext";
 import { db } from "../../Firebase";
 import Loading from "../../Pages/Loading";
 
@@ -19,13 +20,15 @@ const Search = () => {
   const [users, setUsers] = useState([]);
   const [error, raiseError] = useState(false);
   const [userNotFound, setUserNotFound] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const { currentUser } = useContext(AuthContext);
+  const { dispatch } = useContext(ChatContext);
 
   const SearchedUsers = ({ users }) => {
     const handleSelect = async (user) => {
-      //check whether the group(Userchats in firestore) exists or not, if not create new one
+      // check whether the group(Userchats in firestore) exists or not,
+      // if not create new one
       console.log("user", user);
       console.log("current User", currentUser);
       const combinedID =
@@ -38,7 +41,7 @@ const Search = () => {
         const docSnap = await getDoc(docRef);
 
         if (!docSnap.exists()) {
-          //create chat in chats collection
+          // create chat in chats collection
           await setDoc(doc(db, "chats", combinedID), { messages: [] });
 
           // create user's chat list in usersChat collection
@@ -52,7 +55,7 @@ const Search = () => {
             [combinedID + ".date"]: serverTimestamp(),
           });
 
-          //for user selected
+          // for user selected
           await updateDoc(doc(db, "userChats", user.uid), {
             [combinedID + ".userInfo"]: {
               uid: currentUser.uid,
@@ -61,6 +64,17 @@ const Search = () => {
             },
             [combinedID + ".date"]: serverTimestamp(),
           });
+
+          // retrieve data from userChats and
+          // CHANGE_USER in chatContext
+          const userChats = await getDoc(doc(db, "userChats", currentUser.uid));
+          if (userChats.exists())
+            Object.entries(userChats.data())?.forEach((chat) => {
+              // console.log(chat);
+              if (chat[0] === combinedID) {
+                dispatch({ type: "CHANGE_USER", payload: chat[1].userInfo });
+              }
+            });
         } else {
           console.log("Document data:", docSnap.data());
         }
@@ -96,7 +110,7 @@ const Search = () => {
   };
 
   const handleSearch = async () => {
-    setIsLoading(true);
+    setLoading(true);
     setUsers([]);
     setUserNotFound(false);
     raiseError(false);
@@ -122,7 +136,7 @@ const Search = () => {
       raiseError(true);
       console.log(err);
     } finally {
-      setIsLoading(false);
+      setLoading(false);
     }
   };
 
@@ -146,7 +160,7 @@ const Search = () => {
         value={inputUser}
       />
 
-      {isLoading ? (
+      {loading ? (
         <Loading />
       ) : (
         <>
