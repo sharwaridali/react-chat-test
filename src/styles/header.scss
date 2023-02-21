@@ -1,0 +1,65 @@
+@import "./main.scss";
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: $base-color2;
+  padding: 10px 20px;
+  height: 10vh;
+  flex: 1;
+  // border-bottom: 1px solid $secondary-color2;
+
+  &.center {
+    justify-content: center;
+  }
+
+  .brand-name {
+    color: $secondary-color1;
+    font-size: 36px;
+    font-weight: 900;
+    letter-spacing: 7px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+    @include tablet {
+      font-size: 20px;
+    }
+  }
+
+  .profile {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    color: $secondary-color2;
+
+    .avatar {
+      width: 50px;
+      height: 50px;
+      border-radius: 25px;
+      object-fit: cover;
+    }
+
+    .info {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      margin-right: 25px;
+      letter-spacing: 1px;
+      gap: 7px;
+
+      .name {
+        font-weight: bolder;
+        font-size: 20px;
+      }
+      .logout {
+        background-color: $secondary-color1;
+        font-size: 14px;
+        font-weight: bold;
+        padding: 2px 4px;
+        border-radius: 4px;
+        border: none;
+        cursor: pointer;
+      }
+    }
+  }
+}

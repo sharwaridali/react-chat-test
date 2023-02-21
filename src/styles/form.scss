@@ -1,0 +1,118 @@
+@import "./main.scss";
+
+.formContainer {
+  background-color: $secondary-color2;
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .formWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding: 20px 60px;
+    border-radius: 20px;
+    background-color: $base-color2;
+    gap: 15px;
+
+    .card-title {
+      font-size: 25px;
+      font-weight: bold;
+      color: $secondary-color2;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      input {
+        border: none;
+        border-bottom: 1px solid $secondary-color2;
+        text-align: center;
+        padding: 12px;
+        background-color: $base-color2;
+        color: $secondary-color1;
+        font-weight: bolder;
+
+        &::placeholder {
+          color: $secondary-color1;
+        }
+        &:focus {
+          outline: none;
+          background-color: $secondary-color2;
+          color: $base-color2;
+          transition: all 0.6s ease-in-out;
+        }
+      }
+
+      fieldset {
+        border: none;
+      }
+
+      input[type="file"] {
+        border: none;
+        display: none;
+      }
+
+      label {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+        font-size: 13px;
+        font-weight: lighter;
+        color: $secondary-color1;
+        cursor: pointer;
+
+        img {
+          height: 32px;
+          filter: invert(100%);
+        }
+
+        span {
+          max-width: 150px;
+          max-height: 40px;
+          overflow: hidden;
+        }
+        &:hover {
+          color: $base-color1;
+        }
+      }
+    }
+
+    button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      max-height: 40px;
+      background-color: $secondary-color1;
+      color: $base-color2;
+      padding: 10px;
+      font-weight: bold;
+      border: none;
+      font-size: 16px;
+      transition: all 0.5s ease-in-out;
+      &:hover {
+        background-color: $secondary-color2;
+      }
+    }
+
+    p {
+      color: $secondary-color2;
+      .link {
+        color: $secondary-color1;
+        text-decoration: none;
+
+        &:hover {
+          color: $base-color1;
+        }
+      }
+    }
+    .error-message {
+      color: $secondary-color1;
+    }
+  }
+}
+
