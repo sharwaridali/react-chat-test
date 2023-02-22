@@ -17,8 +17,9 @@ const Chat = () => {
           <img src={moreIcon} className="more-icon" alt="options" />
         </div>
       )}
-      <MessageBox />
-      <Input />
+
+      {data.chatId !== null && <MessageBox />}
+      {data.chatId !== null && <Input />}
     </div>
   );
 };

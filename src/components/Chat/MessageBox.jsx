@@ -1,31 +1,41 @@
+import { doc, onSnapshot } from "firebase/firestore";
+import { useContext, useEffect, useState } from "react";
+import { ChatContext } from "../../context/ChatContext";
+import { db } from "../../Firebase";
 import Message from "./Message";
 
 const MessageBox = () => {
+  const { data } = useContext(ChatContext);
+  const [messages, setMessages] = useState([]);
+
+  useEffect(() => {
+    if (data.chatId) {
+      try {
+        const unsub = onSnapshot(doc(db, "chats", data.chatId), (doc) => {
+          // console.log("Current data: ", doc.data().messages);
+          doc.exists() && setMessages(doc.data().messages);
+        });
+        return () => {
+          unsub();
+        };
+      } catch (error) {
+        console.log("error message fetch", error);
+      }
+    }
+  }, [data.chatId]);
+
+  console.log("Messages", messages);
+
   return (
     <div className="message-box">
-      <Message owner={true} />
-      <Message owner={true} />
-      <Message />
-      <Message />
-      <Message owner={true} />
-      <Message img={"https://kbob.github.io/images/sample-5.jpg"} />
-      <Message owner={true} />
-      <Message img={"https://kbob.github.io/images/sample-5.jpg"} />
-      <Message
-        img={
-          "http://www.cameraegg.org/wp-content/uploads/2016/01/Nikon-D500-Sample-Images-2.jpg"
-        }
-      />
-      <Message
-        owner={true}
-        img={
-          "http://www.cameraegg.org/wp-content/uploads/2016/01/Nikon-D500-Sample-Images-2.jpg"
-        }
-      />
-      <Message />
-      <Message />
-      <Message />
-      <Message />
+      {messages.map((msg) => {
+        return (
+          <Message
+            key={msg.id}
+            message={msg}
+          />
+        );
+      })}
     </div>
   );
 };
