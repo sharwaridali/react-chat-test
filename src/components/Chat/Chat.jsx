@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import { ChatContext } from "../../context/ChatContext";
-import defaultAvatar from "../../images/default-avatar.png";
 import moreIcon from "../../images/more.png";
 import Input from "./Input";
 import MessageBox from "./MessageBox";

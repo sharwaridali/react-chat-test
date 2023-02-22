@@ -1,5 +1,4 @@
 import image_icon from "../../images/image-icon.png";
-import attach_icon from "../../images/attach-icon.png";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import { ChatContext } from "../../context/ChatContext";
@@ -7,7 +6,6 @@ import {
   arrayUnion,
   doc,
   serverTimestamp,
-  setDoc,
   Timestamp,
   updateDoc,
 } from "firebase/firestore";

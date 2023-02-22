@@ -1,7 +1,6 @@
-import { doc, getDoc, getDocs, onSnapshot } from "firebase/firestore";
+import { doc, onSnapshot } from "firebase/firestore";
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../context/AuthContext";
-import { ChatContext } from "../../context/ChatContext";
 import { db } from "../../Firebase";
 import ChatListItem from "./ChatListItem";
 import Search from "./Search";
@@ -9,7 +8,6 @@ import Search from "./Search";
 function Sidebar() {
   const { currentUser } = useContext(AuthContext);
   const [userChats, setUserChats] = useState({});
-  const { dispatch } = useContext(ChatContext);
 
   useEffect(() => {
     if (currentUser.uid) {

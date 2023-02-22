@@ -1,7 +1,6 @@
 import { useContext, useEffect, useRef } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import { ChatContext } from "../../context/ChatContext";
-import defaultAvatar from "../../images/default-avatar.png";
 
 const Message = ({message}) => {
   // console.log("props", props);
