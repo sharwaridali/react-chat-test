@@ -12,8 +12,8 @@ function Sidebar() {
   const { dispatch } = useContext(ChatContext);
 
   useEffect(() => {
-    try {
-      const fetchChats = async () => {
+    if (currentUser.uid) {
+      try {
         const unsub = onSnapshot(
           doc(db, "userChats", currentUser.uid),
           (doc) => {
@@ -25,10 +25,9 @@ function Sidebar() {
         return () => {
           unsub();
         };
-      };
-      currentUser && fetchChats();
-    } catch (err) {
-      console.log("Error Fetching User Chats", err);
+      } catch (err) {
+        console.log("Error Fetching User Chats", err);
+      }
     }
   }, [currentUser.uid]);
 
@@ -36,18 +35,21 @@ function Sidebar() {
     <div className="sidebar-container">
       <Search />
       <div className="chat-list">
-        {Object.entries(userChats)?.map((chat) => {
-          return (
-            <ChatListItem
-              key={chat[0]}
-              avatar={chat[1].userInfo.photoURL}
-              displayName={chat[1].userInfo.displayName}
-              lastMessage={chat[1].userInfo.lastMessage?.text}
-              date={Date(chat[1].date)}
-              userInfo={chat[1].userInfo}
-            />
-          );
-        })}
+        {Object.entries(userChats)
+          ?.sort((a, b) => b[1].date - a[1].date)
+          .map((chat) => {
+            console.log("userChats", chat);
+            return (
+              <ChatListItem
+                key={chat[0]}
+                avatar={chat[1].userInfo.photoURL}
+                displayName={chat[1].userInfo.displayName}
+                lastMessage={chat[1].lastMessage?.text}
+                date={Date(chat[1].date)}
+                userInfo={chat[1].userInfo}
+              />
+            );
+          })}
       </div>
     </div>
   );

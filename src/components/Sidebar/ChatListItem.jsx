@@ -14,7 +14,7 @@ const ChatListItem = (props) => {
       <img src={props.avatar} alt="avatar" className="avatar" />
       <div className="info">
         <div className="name">{props.displayName}</div>
-        <p className="message">{props.lastMessage} hello </p>
+        <p className="message">{props.lastMessage}</p>
       </div>
     </div>
     // </div>
