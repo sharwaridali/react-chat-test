@@ -33,7 +33,7 @@ function Sidebar() {
     <div className="sidebar-container">
       <Search />
       <div className="chat-list">
-        {Object.entries(userChats)
+        {userChats && Object.entries(userChats)
           ?.sort((a, b) => b[1].date - a[1].date)
           .map((chat) => {
             console.log("userChats", chat);
