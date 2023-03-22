@@ -1,5 +1,4 @@
 import React from "react";
-import Header from "../components/Header";
 import Sidebar from "../components/Sidebar/Sidebar";
 import Chat from "../components/Chat/Chat";
 import "../styles/sidebar.scss";

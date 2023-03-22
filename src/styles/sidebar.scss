@@ -1,10 +1,4 @@
-@import "./main.scss";
-
-.container {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-}
+@use "./main.scss" as *;
 
 .chat-body {
   display: flex;
@@ -18,7 +12,7 @@
   flex: 1;
   background-color: $base-color2;
 
-  .tip-chat-list{
+  .tip-chat-list {
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -29,7 +23,7 @@
     font-weight: bold;
     color: $secondary-color1;
 
-    span{
+    span {
       display: block;
       width: 100%;
     }

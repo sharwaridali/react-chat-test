@@ -5,6 +5,7 @@ import Home from "./Pages/Home";
 import Login from "./Pages/Login";
 import Register from "./Pages/Register";
 
+import "./styles/main.scss";
 import "./styles/form.scss";
 import Header from "./components/Header";
 

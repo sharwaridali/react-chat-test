@@ -4,7 +4,6 @@ import avatar from "../images/add-avatar.png";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 import { doc, setDoc } from "firebase/firestore";
-import Header from "../components/Header.jsx";
 import { Link, useNavigate } from "react-router-dom";
 import Loading from "../components/Loading";
 

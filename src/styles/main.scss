@@ -18,6 +18,12 @@ body {
   overflow: hidden;
 }
 
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
 // https://loading.io/css/
 .loading-animation {
   display: flex;
