@@ -18,6 +18,14 @@ export default function App() {
     return children;
   };
 
+  const RedirectHomeRoute = ({ children }) => {
+    if (currentUser) {
+      return <Navigate to="/" />;
+    }
+
+    return children;
+  };
+
   return (
     <div>
       <BrowserRouter>
@@ -31,8 +39,22 @@ export default function App() {
                 </ProtectedRoute>
               }
             />
-            <Route path="register" element={<Register />} />
-            <Route path="login" element={<Login />} />
+            <Route
+              path="register"
+              element={
+                <RedirectHomeRoute>
+                  <Register />
+                </RedirectHomeRoute>
+              }
+            />
+            <Route
+              path="login"
+              element={
+                <RedirectHomeRoute>
+                  <Login />
+                </RedirectHomeRoute>
+              }
+            />
           </Route>
         </Routes>
       </BrowserRouter>
