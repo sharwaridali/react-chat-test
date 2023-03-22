@@ -33,21 +33,29 @@ function Sidebar() {
     <div className="sidebar-container">
       <Search />
       <div className="chat-list">
-        {userChats && Object.entries(userChats)
-          ?.sort((a, b) => b[1].date - a[1].date)
-          .map((chat) => {
-            console.log("userChats", chat);
-            return (
-              <ChatListItem
-                key={chat[0]}
-                avatar={chat[1].userInfo.photoURL}
-                displayName={chat[1].userInfo.displayName}
-                lastMessage={chat[1].lastMessage?.text}
-                date={Date(chat[1].date)}
-                userInfo={chat[1].userInfo}
-              />
-            );
-          })}
+        {userChats &&
+          Object.entries(userChats)
+            ?.sort((a, b) => b[1].date - a[1].date)
+            .map((chat) => {
+              console.log("userChats", chat);
+              return (
+                <ChatListItem
+                  key={chat[0]}
+                  avatar={chat[1].userInfo.photoURL}
+                  displayName={chat[1].userInfo.displayName}
+                  lastMessage={chat[1].lastMessage?.text}
+                  date={Date(chat[1].date)}
+                  userInfo={chat[1].userInfo}
+                />
+              );
+            })}
+        {!userChats && (
+          <div className="tip-chat-list">
+            <span> Search User Name</span>
+            <span> & </span>
+            <span> Start a Chat</span>
+          </div>
+        )}
       </div>
     </div>
   );

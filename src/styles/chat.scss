@@ -8,6 +8,23 @@
   flex-direction: column;
   background-color: $secondary-color2;
 
+  .tip-message-box {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: auto 0;
+    text-align: center;
+    width: 100%;
+    font-size: 25px;
+    font-weight: bold;
+    color: $base-color2;
+
+    span {
+      display: block;
+      width: 100%;
+    }
+  }
+
   .chat-info {
     display: flex;
     justify-content: flex-start;

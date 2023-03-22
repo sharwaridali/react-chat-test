@@ -19,6 +19,11 @@ const Chat = () => {
 
       {data.chatId !== null && <MessageBox />}
       {data.chatId !== null && <Input />}
+      {data.chatId === null && (
+        <div className="tip-message-box">
+          <span>Start a Chat</span>
+        </div>
+      )}
     </div>
   );
 };
