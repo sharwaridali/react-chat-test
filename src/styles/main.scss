@@ -8,32 +8,15 @@ $secondary-color2: #e8eceb;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 html,
 body {
-  height: 100%;
+  height: 100vh;
+  width: 100vw;
   overflow: hidden;
 }
-
-// @mixin mobile {
-//   @media screen and (max-width: 480px) {
-//     @content;
-//   }
-// }
-
-// @mixin tablet {
-//   @media screen and (max-width: 768px) {
-//     @content;
-//   }
-// }
-
-// @mixin laptop {
-//   @media screen and (max-width: 1200px) {
-//     @content;
-//   }
-// }
 
 // https://loading.io/css/
 .loading-animation {

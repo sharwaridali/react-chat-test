@@ -13,7 +13,7 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import { ChatContext } from "../../context/ChatContext";
 import { db } from "../../Firebase";
-import Loading from "../../Pages/Loading";
+import Loading from "../Loading";
 
 const Search = () => {
   const [inputUser, setInputUser] = useState("");
