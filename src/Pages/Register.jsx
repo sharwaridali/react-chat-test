@@ -153,7 +153,7 @@ const Register = () => {
 
         {error && <p className="error-message">Oops... Something went wrong</p>}
         <p>
-          Already have an account?
+          Already have an account?&nbsp;
           <Link className="link" to="/login">
             Login
           </Link>

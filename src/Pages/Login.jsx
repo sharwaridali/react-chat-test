@@ -46,7 +46,7 @@ const Login = () => {
         </form>
         {error && <p className="error-message">Oops... Something went wrong</p>}
         <p>
-          Don't have an account?
+          Don't have an account?&nbsp;
           <Link className="link" to="/register">
             Sign up
           </Link>

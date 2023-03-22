@@ -2,11 +2,17 @@
 @use "./responsive.scss" as *;
 
 .chat-container {
-  height: 100%;
-  display: flex;
-  flex: 3;
+  // display: none;
+  display: none;
+  height: calc(100vh - 80px);
   flex-direction: column;
   background-color: $secondary-color2;
+  width: 100vw;
+  // max-width: calc(100vw * 3 / 4);
+  @include md {
+    display: flex;
+    flex: 3;
+  }
 
   .tip-message-box {
     display: flex;
@@ -27,11 +33,21 @@
 
   .chat-info {
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
-    padding: 10px;
     background-color: $base-color1;
     color: $base-color2;
+
+    .back-btn {
+      width: 45px;
+      object-fit: cover;
+      margin-right: auto;
+      padding: 10px;
+
+      @include md{
+        display: none;
+      }
+    }
 
     .avatar {
       width: 30px;

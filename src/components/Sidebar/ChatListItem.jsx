@@ -5,6 +5,12 @@ const ChatListItem = (props) => {
   const { dispatch } = useContext(ChatContext);
   const handleSelect = (userInfo) => {
     // console.log("handle select userInfo", userInfo);
+    let sidebarContainer =
+      document.getElementsByClassName("sidebar-container")[0];
+    sidebarContainer.style.display = "none";
+    let chatContainer = document.getElementsByClassName("chat-container")[0];
+    chatContainer.style.display = "flex";
+
     dispatch({ type: "CHANGE_USER", payload: userInfo });
   };
 

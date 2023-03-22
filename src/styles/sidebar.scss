@@ -1,16 +1,23 @@
 @use "./main.scss" as *;
+@use "./responsive.scss" as *;
 
 .chat-body {
   display: flex;
-  flex: 1;
   height: calc(100vh - 80px);
+  width: 100vw;
 }
 
 .sidebar-container {
   display: flex;
+  height: calc(100vh - 80px);
   flex-direction: column;
-  flex: 1;
   background-color: $base-color2;
+  width: 100vw;
+  // max-width: calc(100vw * 1 / 4);
+  @include md {
+    display: flex;
+    flex: 1;
+  }
 
   .tip-chat-list {
     display: flex;
@@ -118,4 +125,8 @@
       }
     }
   }
+}
+
+.toggle-sidebar {
+  display: none;
 }

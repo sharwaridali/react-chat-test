@@ -9,6 +9,8 @@ function Sidebar() {
   const { currentUser } = useContext(AuthContext);
   const [userChats, setUserChats] = useState({});
 
+  console.log("userChats", userChats);
+
   useEffect(() => {
     if (currentUser.uid) {
       try {
@@ -33,7 +35,7 @@ function Sidebar() {
     <div className="sidebar-container">
       <Search />
       <div className="chat-list">
-        {userChats &&
+        {userChats && Object.keys(userChats).length !== 0 &&
           Object.entries(userChats)
             ?.sort((a, b) => b[1].date - a[1].date)
             .map((chat) => {
@@ -49,7 +51,8 @@ function Sidebar() {
                 />
               );
             })}
-        {!userChats && (
+
+        {userChats && Object.keys(userChats).length === 0 && (
           <div className="tip-chat-list">
             <span> Search User Name</span>
             <span> & </span>
