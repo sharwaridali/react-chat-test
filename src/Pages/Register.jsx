@@ -95,76 +95,70 @@ const Register = () => {
   };
 
   return (
-    <div>
-      <Header />
-      <div className="formContainer">
-        <div className="formWrapper">
-          <span className="card-title">Register</span>
+    <div className="formContainer">
+      <div className="formWrapper">
+        <span className="card-title">Register</span>
 
-          <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit}>
+          <input
+            className="effect-8"
+            type="text"
+            placeholder="Name"
+            value={form.name}
+            onChange={(e) => {
+              setForm({ ...form, name: e.target.value });
+            }}
+            required
+          />
+          <input
+            type="email"
+            placeholder="Email"
+            value={form.email}
+            onChange={(e) => {
+              setForm({ ...form, email: e.target.value });
+            }}
+            required
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            value={form.password}
+            onChange={(e) => {
+              setForm({ ...form, password: e.target.value });
+            }}
+            required
+          />
+
+          <fieldset>
             <input
-              className="effect-8"
-              type="text"
-              placeholder="Name"
-              value={form.name}
+              type="file"
+              id="file"
               onChange={(e) => {
-                setForm({ ...form, name: e.target.value });
+                setForm({
+                  ...form,
+                  avatar: e.target.files[0],
+                  imagePath: e.target.value,
+                });
               }}
-              required
             />
-            <input
-              type="email"
-              placeholder="Email"
-              value={form.email}
-              onChange={(e) => {
-                setForm({ ...form, email: e.target.value });
-              }}
-              required
-            />
-            <input
-              type="password"
-              placeholder="Password"
-              value={form.password}
-              onChange={(e) => {
-                setForm({ ...form, password: e.target.value });
-              }}
-              required
-            />
+            <label htmlFor="file">
+              <img src={avatar} alt="avatar" />
+              <span>
+                {form.avatar !== "" ? form.avatar.name : "Add an avatar"}
+              </span>
+            </label>
+          </fieldset>
 
-            <fieldset>
-              <input
-                type="file"
-                id="file"
-                onChange={(e) => {
-                  setForm({
-                    ...form,
-                    avatar: e.target.files[0],
-                    imagePath: e.target.value,
-                  });
-                }}
-              />
-              <label htmlFor="file">
-                <img src={avatar} alt="avatar" />
-                <span>
-                  {form.avatar !== "" ? form.avatar.name : "Add an avatar"}
-                </span>
-              </label>
-            </fieldset>
+          <button>{isLoading ? <Loading /> : "Sign up"}</button>
+        </form>
 
-            <button>{isLoading ? <Loading /> : "Sign up"}</button>
-          </form>
-
-          {error && (
-            <p className="error-message">Oops... Something went wrong</p>
-          )}
-          <p>
-            Already have an account?{" "}
-            <Link className="link" to="/login">
-              {" "}
-              Login{" "}
-            </Link>{" "}
-          </p>
-        </div>
+        {error && <p className="error-message">Oops... Something went wrong</p>}
+        <p>
+          Already have an account?
+          <Link className="link" to="/login">
+            Login
+          </Link>
+        </p>
       </div>
     </div>
   );

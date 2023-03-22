@@ -24,40 +24,34 @@ const Login = () => {
   };
 
   return (
-    <div>
-      <Header />
-      <div className="formContainer">
-        <div className="formWrapper">
-          <span className="card-title">Login</span>
+    <div className="formContainer">
+      <div className="formWrapper">
+        <span className="card-title">Login</span>
 
-          <form onSubmit={handleSubmit}>
-            <input
-              type="email"
-              placeholder="Email"
-              onChange={(e) => {
-                updateForm({ ...form, email: e.target.value });
-              }}
-            />
-            <input
-              type="password"
-              placeholder="Password"
-              onChange={(e) => {
-                updateForm({ ...form, password: e.target.value });
-              }}
-            />
-            <button>Sign in</button>
-          </form>
-          {error && (
-            <p className="error-message">Oops... Something went wrong</p>
-          )}
-          <p>
-            Don't have an account?{" "}
-            <Link className="link" to="/register">
-              {" "}
-              Sign up{" "}
-            </Link>{" "}
-          </p>
-        </div>
+        <form onSubmit={handleSubmit}>
+          <input
+            type="email"
+            placeholder="Email"
+            onChange={(e) => {
+              updateForm({ ...form, email: e.target.value });
+            }}
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            onChange={(e) => {
+              updateForm({ ...form, password: e.target.value });
+            }}
+          />
+          <button>Sign in</button>
+        </form>
+        {error && <p className="error-message">Oops... Something went wrong</p>}
+        <p>
+          Don't have an account?
+          <Link className="link" to="/register">
+            Sign up
+          </Link>
+        </p>
       </div>
     </div>
   );

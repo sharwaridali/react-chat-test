@@ -6,6 +6,7 @@ import Login from "./Pages/Login";
 import Register from "./Pages/Register";
 
 import "./styles/form.scss";
+import Header from "./components/Header";
 
 export default function App() {
   const { currentUser } = useContext(AuthContext);
@@ -27,7 +28,8 @@ export default function App() {
   };
 
   return (
-    <div>
+    <div className="container">
+      <Header />
       <BrowserRouter>
         <Routes>
           <Route path="/">

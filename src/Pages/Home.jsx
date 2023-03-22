@@ -5,15 +5,11 @@ import Chat from "../components/Chat/Chat";
 import "../styles/sidebar.scss";
 import "../styles/chat.scss";
 
-
 const Home = () => {
   return (
-    <div className="container">
-      <Header />
-      <div className="chat-body">
-        <Sidebar />
-        <Chat />
-      </div>
+    <div className="chat-body">
+      <Sidebar />
+      <Chat />
     </div>
   );
 };
