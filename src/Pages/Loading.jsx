@@ -1,7 +1,7 @@
 const Loading = () => {
   console.log("loading");
   return (
-    <div className="lds-facebook">
+    <div className="loading-animation">
       <div></div>
       <div></div>
       <div></div>

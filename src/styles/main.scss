@@ -14,28 +14,29 @@ $secondary-color2: #e8eceb;
 html,
 body {
   height: 100%;
+  overflow: hidden;
 }
 
-@mixin mobile {
-  @media screen and (max-width: 480px) {
-    @content;
-  }
-}
+// @mixin mobile {
+//   @media screen and (max-width: 480px) {
+//     @content;
+//   }
+// }
 
-@mixin tablet {
-  @media screen and (max-width: 768px) {
-    @content;
-  }
-}
+// @mixin tablet {
+//   @media screen and (max-width: 768px) {
+//     @content;
+//   }
+// }
 
-@mixin laptop {
-  @media screen and (max-width: 1200px) {
-    @content;
-  }
-}
+// @mixin laptop {
+//   @media screen and (max-width: 1200px) {
+//     @content;
+//   }
+// }
 
 // https://loading.io/css/
-.lds-facebook {
+.loading-animation {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -46,7 +47,7 @@ body {
   div {
     width: 8px;
     background-color: $secondary-color2;
-    animation: lds-facebook 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+    animation: loading-animation 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
   }
   div:nth-child(1) {
     animation-delay: -0.24s;
@@ -58,7 +59,7 @@ body {
     animation-delay: 0;
   }
 
-  @keyframes lds-facebook {
+  @keyframes loading-animation {
     0% {
       height: 30px;
     }

@@ -1,4 +1,5 @@
-@import "./main.scss";
+@use "./main.scss" as *;
+@use "./responsive.scss" as *;
 
 .chat-container {
   height: 100%;
@@ -82,18 +83,17 @@
         }
 
         img {
-          max-width: 300px;
-          max-height: 300px;
-          // resize image size for smaller screens
+          max-width: 200px;
+          max-height: 200px;
           object-fit: cover;
 
-          @include tablet {
+          @include md {
             max-width: 250px;
             max-height: 250px;
           }
-          @include mobile {
-            max-width: 200px;
-            max-height: 200px;
+          @include lg {
+            max-width: 300px;
+            max-height: 300px;
           }
         }
       }
