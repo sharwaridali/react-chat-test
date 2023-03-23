@@ -11,6 +11,8 @@
   height: 80px;
   width: 100%;
   // border-bottom: 1px solid $secondary-color2;
+  box-shadow: rgba(99, 99, 99, 0.7) 0px 2px 5px 2px;
+  z-index: 2;
 
   @include md {
     padding: 20px;

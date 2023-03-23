@@ -8,7 +8,8 @@ $secondary-color2: #e8eceb;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
 }
 
 html,
@@ -33,6 +34,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  justify-self: center;
+  align-self: center;
   gap: 8px;
   width: 80px;
   height: 38px;
@@ -61,4 +64,7 @@ body {
       height: 10px;
     }
   }
+}
+.loading-center {
+  margin: auto auto;
 }
