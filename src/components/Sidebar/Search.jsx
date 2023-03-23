@@ -29,8 +29,8 @@ const Search = (props) => {
     const handleSelect = async (user) => {
       // check whether the group(Userchats in firestore) exists or not,
       // if not create new one
-      console.log("user", user);
-      console.log("current User", currentUser);
+      // console.log("user", user);
+      // console.log("current User", currentUser);
       const combinedID =
         currentUser.uid > user.uid
           ? currentUser.uid + user.uid
@@ -124,11 +124,11 @@ const Search = (props) => {
 
     try {
       const querySnapshot = await getDocs(q);
-      console.log(querySnapshot);
+      // console.log(querySnapshot);
       querySnapshot.forEach((doc) => {
         // doc.data() is never undefined for query doc snapshots
         setUsers((users) => [...users, doc.data()]);
-        console.log(doc.id, " => ", doc.data());
+        // console.log(doc.id, " => ", doc.data());
       });
       if (users.length === 0) {
         raiseError(true);

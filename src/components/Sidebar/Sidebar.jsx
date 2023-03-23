@@ -9,7 +9,7 @@ function Sidebar(props) {
   const { currentUser } = useContext(AuthContext);
   const [userChats, setUserChats] = useState({});
 
-  console.log("userChats", userChats);
+  // console.log("userChats", userChats);
 
   useEffect(() => {
     if (currentUser.uid) {
@@ -26,7 +26,7 @@ function Sidebar(props) {
           unsub();
         };
       } catch (err) {
-        console.log("Error Fetching User Chats", err);
+        // console.log("Error Fetching User Chats", err);
       }
     }
   }, [currentUser.uid]);
@@ -40,7 +40,7 @@ function Sidebar(props) {
           Object.entries(userChats)
             ?.sort((a, b) => b[1].date - a[1].date)
             .map((chat) => {
-              console.log("userChats", chat);
+              // console.log("userChats", chat);
               return (
                 <ChatListItem
                   key={chat[0]}

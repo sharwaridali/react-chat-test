@@ -7,10 +7,10 @@ import "../styles/chat.scss";
 const Home = () => {
   const toggleSidebar = () => {
     const screenWidth = window.innerWidth;
-    console.log("handle back");
+    // console.log("handle back");
 
     if (screenWidth < 768) {
-      console.log("screenWidth", screenWidth);
+      // console.log("screenWidth", screenWidth);
       let sidebarContainer =
         document.getElementsByClassName("sidebar-container")[0];
       // sidebarContainer.style.display = "none";
@@ -24,8 +24,8 @@ const Home = () => {
         chatContainer.classList.remove("hiddden-chat");
       else chatContainer.classList.add("hiddden-chat");
 
-      console.log("sidebar", sidebarContainer.classList);
-      console.log("chatContainer", chatContainer.classList);
+      // console.log("sidebar", sidebarContainer.classList);
+      // console.log("chatContainer", chatContainer.classList);
     }
   };
 

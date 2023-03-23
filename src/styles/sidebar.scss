@@ -93,6 +93,9 @@
         // border-bottom: 2px solid $secondary-color2;
         background-color: transparent;
         color: $secondary-color2;
+        // box-shadow: $secondary-color2 0px 1px 2px 1px;
+        border-bottom: 1px solid $secondary-color2;
+
         transition: all 0.4s ease-in-out;
 
         &:hover {
@@ -131,7 +134,7 @@
 
   .hidden-sidebar {
     display: none;
-    @include md{
+    @include md {
       display: flex;
     }
   }

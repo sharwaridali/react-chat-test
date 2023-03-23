@@ -1,5 +1,5 @@
 const Loading = () => {
-  console.log("loading");
+  // console.log("loading");
   return (
     <div className="loading-animation">
       <div></div>

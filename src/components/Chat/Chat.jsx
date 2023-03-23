@@ -7,7 +7,7 @@ import backIcon from "../../images/back-arrow-icon.png";
 
 const Chat = (props) => {
   const { data } = useContext(ChatContext);
-  console.log("data ", data);
+  // console.log("data ", data);
 
   return (
     <div className="chat-container hiddden-chat">

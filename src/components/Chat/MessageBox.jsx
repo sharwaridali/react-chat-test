@@ -24,7 +24,7 @@ const MessageBox = () => {
     }
   }, [data.chatId]);
 
-  console.log("Messages", messages);
+  // console.log("Messages", messages);
 
   return (
     <div className="message-box">

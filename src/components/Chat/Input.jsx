@@ -16,7 +16,7 @@ import { v4 as uuid } from "uuid";
 const Input = () => {
   const { currentUser } = useContext(AuthContext);
   const { data } = useContext(ChatContext);
-  console.log("current User", currentUser);
+  // console.log("current User", currentUser);
 
   const [text, setText] = useState("");
   const [img, setImg] = useState(null);
@@ -41,7 +41,7 @@ const Input = () => {
     if (!img && text === "") return;
     try {
       if (img) {
-        console.log("Image selected: ", img);
+        // console.log("Image selected: ", img);
         // Upload image
         const storageRef = ref(storage, uuid());
         const uploadTask = uploadBytesResumable(storageRef, img);
