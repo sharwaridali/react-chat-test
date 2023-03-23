@@ -5,7 +5,7 @@ import { db } from "../../Firebase";
 import ChatListItem from "./ChatListItem";
 import Search from "./Search";
 
-function Sidebar() {
+function Sidebar(props) {
   const { currentUser } = useContext(AuthContext);
   const [userChats, setUserChats] = useState({});
 
@@ -33,9 +33,10 @@ function Sidebar() {
 
   return (
     <div className="sidebar-container">
-      <Search />
+      <Search toggleSidebar={props.toggleSidebar} />
       <div className="chat-list">
-        {userChats && Object.keys(userChats).length !== 0 &&
+        {userChats &&
+          Object.keys(userChats).length !== 0 &&
           Object.entries(userChats)
             ?.sort((a, b) => b[1].date - a[1].date)
             .map((chat) => {
@@ -48,6 +49,7 @@ function Sidebar() {
                   lastMessage={chat[1].lastMessage?.text}
                   date={Date(chat[1].date)}
                   userInfo={chat[1].userInfo}
+                  toggleSidebar={props.toggleSidebar}
                 />
               );
             })}

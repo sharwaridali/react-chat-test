@@ -15,7 +15,7 @@ import { ChatContext } from "../../context/ChatContext";
 import { db } from "../../Firebase";
 import Loading from "../Loading";
 
-const Search = () => {
+const Search = (props) => {
   const [inputUser, setInputUser] = useState("");
   const [users, setUsers] = useState([]);
   const [error, raiseError] = useState(false);
@@ -81,6 +81,8 @@ const Search = () => {
       } catch (err) {
         console.log("Error Handle Search", err);
       }
+
+      props.toggleSidebar();
 
       setInputUser("");
       setUsers([]);
