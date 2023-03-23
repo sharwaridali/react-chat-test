@@ -10,16 +10,31 @@ const Chat = () => {
   console.log("data ", data);
 
   const handleBack = () => {
-    console.log("hangle back");
-    let sidebarContainer =
-      document.getElementsByClassName("sidebar-container")[0];
-    sidebarContainer.style.display = "flex";
-    let chatContainer = document.getElementsByClassName("chat-container")[0];
-    chatContainer.style.display = "none";
+    const screenWidth = window.innerWidth;
+    console.log("handle back");
+
+    if (screenWidth < 768) {
+      console.log("screenWidth", screenWidth);
+      let sidebarContainer =
+        document.getElementsByClassName("sidebar-container")[0];
+      // sidebarContainer.style.display = "none";
+      if (sidebarContainer.classList.contains("hidden-sidebar"))
+        sidebarContainer.classList.remove("hidden-sidebar");
+      else sidebarContainer.classList.add("hidden-sidebar");
+
+      let chatContainer = document.getElementsByClassName("chat-container")[0];
+      // chatContainer.style.display = "flex";
+      if (chatContainer.classList.contains("hiddden-chat"))
+        chatContainer.classList.remove("hiddden-chat");
+      else chatContainer.classList.add("hiddden-chat");
+
+      console.log("sidebar", sidebarContainer.classList);
+      console.log("chatContainer", chatContainer.classList);
+    }
   };
 
   return (
-    <div className="chat-container">
+    <div className="chat-container hiddden-chat">
       <div className="chat-info">
         <img
           onClick={handleBack}
